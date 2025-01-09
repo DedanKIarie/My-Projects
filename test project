@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to CyberDomain</title>
+    <style>
+        body {
+            background-color: #0d0d0d;
+            color: #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0, 255, 0, 0.2), rgba(0, 0, 0, 0.9));
+            z-index: -2;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/circuit-board.png');
+            opacity: 0.1;
+            z-index: -1;
+        }
+
+        .terminal {
+            background: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            padding: 20px;
+            width: 80%;
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .terminal h1 {
+            color: #00ff00;
+            font-size: 2em;
+            margin: 0 0 20px;
+        }
+
+        .terminal p {
+            color: #00cc00;
+            margin: 10px 0;
+            font-size: 1.2em;
+        }
+
+        .terminal a {
+            color: #ff0000;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .terminal a:hover {
+            text-shadow: 0 0 5px #ff3333;
+        }
+
+        .glitch {
+            display: inline-block;
+            position: relative;
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0% {
+                text-shadow: 2px 2px #00ff00, -2px -2px #00ff00;
+            }
+            50% {
+                text-shadow: -2px -2px #33ff33, 2px 2px #33ff33;
+            }
+            100% {
+                text-shadow: 2px 2px #00ff00, -2px -2px #00ff00;
+            }
+        }
+
+        .typewriter p {
+            overflow: hidden;
+            border-right: 2px solid rgba(255, 255, 255, 0.75);
+            white-space: nowrap;
+            margin: 0 auto;
+            animation: typing 4s steps(30, end), blink 0.5s step-end infinite;
+        }
+
+        @keyframes typing {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
+        @keyframes blink {
+            from { border-color: rgba(255, 255, 255, 0.75); }
+            to { border-color: transparent; }
+        }
+
+        .ascii-art {
+            color: #00ff00;
+            font-size: 0.9em;
+            line-height: 1.2;
+            margin: 20px 0;
+            white-space: pre;
+        }
+
+        .console-input {
+            margin-top: 20px;
+            background: #0d0d0d;
+            border: 2px solid #00ff00;
+            border-radius: 5px;
+            color: #33ff33;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 1em;
+            padding: 10px;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        .console-input::placeholder {
+            color: #33ff33;
+            opacity: 0.7;
+        }
+    </style>
+    <script>
+        function openRandomCoolStuff() {
+            const urls = [
+                'https://www.glitch.com',
+                'https://www.hackertyper.net',
+                'https://www.geogebra.org/m/superellipse',
+                'https://www.fractalforums.org',
+                'https://www.shadertoy.com',
+                'https://www.thispersondoesnotexist.com'
+            ];
+            const randomIndex = Math.floor(Math.random() * urls.length);
+            window.open(urls[randomIndex], '_blank');
+        }
+
+        function handleCommand(event) {
+            if (event.key === 'Enter') {
+                const input = event.target.value.trim().toLowerCase();
+                if (input === 'hack') {
+                    openRandomCoolStuff();
+                } else {
+                    alert('Unknown command: ' + input);
+                }
+                event.target.value = '';
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="terminal">
+        <h1 class="glitch">Welcome to CyberDomain</h1>
+        <div class="typewriter">
+            <p>Your portal to the digital abyss...</p>
+        </div>
+        <div class="ascii-art">
+            {\_/}
+            (o.o)  <span>Hacker Bunny</span>
+            (> <)
+        </div>
+        <p>If you dare, <a href="#" onclick="openRandomCoolStuff()">enter the matrix</a>.</p>
+        <input class="console-input" type="text" placeholder="Enter command..." onkeypress="handleCommand(event)">
+    </div>
+</body>
+</html>
